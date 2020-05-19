@@ -1,6 +1,7 @@
 Class abstraction of an application oauth flow, where the access token is persisted as a file. The token is encrypted using a custom encryption key to avoid persisting the key itself.
 
 # How to use
+
 ```python
 from oauth_encrypt.token import EncryptedOauth2Client
 from os import environ
