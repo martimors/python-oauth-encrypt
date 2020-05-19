@@ -1,6 +1,12 @@
 # Vscode related
 .vscode
 
+# Saved access tokens
+*.credential
+
+# Local stuff
+args.yaml
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
