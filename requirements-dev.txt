@@ -2,3 +2,4 @@ pylint
 pytest
 flake8
 black
+twine
