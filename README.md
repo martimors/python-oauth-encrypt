@@ -24,7 +24,7 @@ def main():
         args = yaml.safe_load(stream)
 
     r = client.get(
-        "https://apitest.dfds.com/server/ddp/pbb/views/getstowedunits", params=args
+        environ["REQUEST_URL"], params=args
     )
 
     print(f"Retrieved {len(r['elements'])} entries")
