@@ -1,5 +1,7 @@
 Class abstraction of an application oauth flow, where the access token is persisted as a file. The token is encrypted using a custom encryption key to avoid persisting the key itself.
 
+The reason I made this is because OAuth2 tokens cost money, thus it is a good idea to use the token until it expires. The token is persisted (encrypted) between runs of the parent code such that the token is completely reusable.
+
 # How to use
 
 ```python
