@@ -5,7 +5,7 @@ Class abstraction of an application oauth flow, where the access token is persis
 ```python
 from oauth_encrypt.token import EncryptedOauth2Client
 from os import environ
-import yaml
+
 
 config = {
     "token_url": "provider.com/token",
