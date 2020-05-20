@@ -27,6 +27,8 @@ def main():
     print(client.get("protected.com"))
 
 if __name__ == "__main__":
+    # This can be run as many times as you want, it will only get a new
+    # token when the previous one has expired
     main()
 
 ```
