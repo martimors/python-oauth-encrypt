@@ -54,8 +54,10 @@ class EncryptedOauth2Client:
             self._encryptionkey.decrypt(file_data).decode("UTF-8")
         )
 
-    def get(self, url, params):
+    def get(self, url, params=None):
         """Send a get-request to a url"""
+        if not params:
+            params = {}
         try:
             client = OAuth2Session(self._client_id, token=self._access_token)
             r = client.get(url, params=params)
