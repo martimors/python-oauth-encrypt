@@ -12,10 +12,6 @@ class EncryptedOauth2Client:
         # Read the reqired env variables
         self._set_config_variables(config)
 
-        # Set up the oauth2.0 session
-        _client = BackendApplicationClient(client_id=self._client_id)
-        self._session = OAuth2Session(client=_client)
-
         # Read the credentials if they exist, otherwise get new token
         if Path("access_key.credential").exists():
             self._read_token()
@@ -32,7 +28,10 @@ class EncryptedOauth2Client:
 
     def _get_fresh_token(self):
         """Get a new oauth token"""
-        self._access_token = self._session.fetch_token(
+        # Set up the oauth2.0 session
+        _client = BackendApplicationClient(client_id=self._client_id)
+        _session = OAuth2Session(client=_client)
+        self._access_token = _session.fetch_token(
             token_url=self._token_url,
             client_id=self._client_id,
             client_secret=self._client_secret,
@@ -64,7 +63,7 @@ class EncryptedOauth2Client:
             self._get_fresh_token()
             client = OAuth2Session(self._client_id, token=self._access_token)
             r = client.get(url, params=params)
-        
+
         # Raise errors if any
         r.raise_for_status()
 
